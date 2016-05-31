@@ -8,3 +8,18 @@
   <img src="${static.url('themes/default/images/logo.png')}" height="50" alt="Home Page" />
 </%block>
 
+<%block name="navigation_other_global_links">
+    ${parent.navigation_other_global_links()}
+    <li class="item nav-lang">
+    <form action="/i18n/setlang/" method="POST" id="language_form">
+    <input type="hidden" name="csrfmiddlewaretoken" value="${ csrf_token }"/>
+    <!--<input name="next" type="hidden" value="/next/page/" />-->
+    <select name="language" id="language_code" onchange="this.form.submit()">
+        % for lang in settings.LANGUAGES:
+                <option value="${ lang[0] }">${ lang[1] }</option>
+        % endfor
+    </select>
+    </form>
+    </li>
+</%block>
+
