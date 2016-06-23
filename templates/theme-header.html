@@ -14,11 +14,13 @@
     <form action="/i18n/setlang/" method="POST" id="language_form">
     <input type="hidden" name="csrfmiddlewaretoken" value="${ csrf_token }"/>
     <!--<input name="next" type="hidden" value="/next/page/" />-->
-    <select name="language" id="language_code" onchange="this.form.submit()">
-        % for lang in settings.LANGUAGES:
-                <option value="${ lang[0] }">${ lang[1] }</option>
-        % endfor
-    </select>
+    <div name="language" id="language_code">
+    <input type="image" name="language" onclick="this.form.submit()" value="${settings.LANGUAGES[0][0]}" id="language_code" src="${static.url('themes/default/images/en.png')}" alt="${settings.LANGUAGES[0][1]}">
+    <input type="image" name="language" onclick="this.form.submit()" value="${settings.LANGUAGES[16][0]}" id="language_code" src="${static.url('themes/default/images/de.png')}" alt="${settings.LANGUAGES[16][1]}">
+    <input type="image" name="language" onclick="this.form.submit()" value="${settings.LANGUAGES[33][0]}" id="language_code" src="${static.url('themes/default/images/fr.png')}" alt="${settings.LANGUAGES[33][1]}">
+    <input type="image" name="language" onclick="this.form.submit()" value="${settings.LANGUAGES[61][0]}" id="language_code" src="${static.url('themes/default/images/ru.png')}" alt="${settings.LANGUAGES[61][1]}">
+    <input type="image" name="language" onclick="this.form.submit()" value="${settings.LANGUAGES[73][0]}" id="language_code" src="${static.url('themes/default/images/ua.png')}" alt="${settings.LANGUAGES[73][1]}">
+    </div>
     </form>
     </li>
 </%block>
